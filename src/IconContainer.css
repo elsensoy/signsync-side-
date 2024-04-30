@@ -1,0 +1,36 @@
+/* IconContainer.css */
+.icon-container {
+    display: flex;
+    justify-content: center; /* Centers icons horizontally within the container */
+    flex-wrap: wrap; /* Allows icons to wrap onto the next line when there's no space */
+    padding: 20px; /* Adds padding inside the container for spacing */
+    gap: 20px; /* Provides space between individual icons */
+}
+
+.icon-link {
+    display: flex;
+    flex-direction: column; /* Arranges the icon and text vertically */
+    align-items: center; /* Centers the items horizontally */
+    text-decoration: none; /* Removes underline from the links */
+    width: 100px; /* Sets a fixed width for each icon link to maintain uniformity */
+    color: #333; /* Sets the text color */
+    background-color: #f9f9f9; /* Light background color for each icon link */
+    padding: 10px; /* Padding around the content inside the link */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Subtle shadow for 3D effect */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.icon-link:hover {
+    transform: scale(1.1); /* Scales up the icon link on hover for a slight pop effect */
+}
+
+.icon-link img {
+    width: 48px; /* Fixed width for icons */
+    height: 48px; /* Fixed height for icons */
+}
+
+.icon-link p {
+    margin-top: 8px; /* Space between the icon image and the text label */
+    font-size: 14px; /* Sets the font size for the text */
+}

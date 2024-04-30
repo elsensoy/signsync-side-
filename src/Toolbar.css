@@ -1,0 +1,75 @@
+.toolbar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px;
+	background-color: #f0f0f0;
+	border-bottom: 1px solid #ccc;
+  }
+  
+  .search-box {
+    padding: 8px;
+    margin-left: 10px; 
+    flex-grow: 1;     
+}
+
+  .toolbar-content {
+	display: flex;
+	align-items: right;
+	gap: 10px; /* Adds space between icons group and date-time */
+  }
+
+  .toolbar {
+	display: flex;
+	justify-content: flex-start; /* Aligns content to the left */
+	align-items: center; /* Centers content vertically */
+	width: 100%;
+	padding: 10px 20px;
+	background-color:#d0f1fc;
+	border-bottom: 1px solid #034055;
+  }
+
+
+  
+  .toolbar-icons {
+
+		display: flex;
+		gap: 10px; /* Space between each icon */
+	  }
+  
+
+  .toolbar-icon {
+	width: 24px; /* Control the size of your icons */
+	height: 24px;
+
+  }
+
+
+  .date-time {
+	padding: 5px 10px;
+	background-color:#d0f1fc; /* Light grey background for visibility */
+	border-radius: 5px;
+	
+  }
+
+  .app-title {
+	flex-grow: 1; /* Allows the title to take up any remaining space */
+	text-align: left; /* Ensures text is aligned to the left */
+  }
+  .app-title h1 {
+	margin: 10px 0 5px;
+  }
+  
+  .app-title hr {
+	width: 90%;
+	border: 0;
+	height: 1px;
+	background-color: #333;
+	margin-bottom: 5px;
+  }
+  
+  .tagline {
+	font-style: italic;
+	color: #555;
+  }
+  
