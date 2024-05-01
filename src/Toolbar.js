@@ -36,7 +36,7 @@ const Toolbar = () => {
                     <button className="toolbar-button">Home</button>
                     <button className="toolbar-button">Login</button>
                     <button className="toolbar-button">Register</button>
-
+                    
                     <div className="language-dropdown">
                         <button onClick={toggleDropdown} className="dropdown-toggle">
                             <img src={languageIcon} alt="Language" />

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './App.css';
 import Sidebar from './Sidebar';
 import Toolbar from './Toolbar';
-import menuBarIcon from './images/menubar.png';
+//import menuBarIcon from './images/menubar.png';
 import LottieAnimation from './LottieAnimation';
 
 function App() {
@@ -25,7 +27,7 @@ function App() {
         <div className="main-container">
             <Toolbar />
             <button onClick={toggleSidebar} className="sidebar-toggle">
-                <img src={menuBarIcon} alt="Menu" />
+             
             </button>
 
             {isSidebarOpen && <Sidebar />}
