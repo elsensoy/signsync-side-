@@ -29,26 +29,29 @@ body {
 /* Styles specifically for the toolbar to stretch across the full width of the viewport */
 /* Styles specifically for the toolbar to stretch across the full width of the viewport */
 .toolbar {
-  display: flex;
-  justify-content: flex-start; /* Aligns children to the left */
-  align-items: center; /* Keeps items vertically centered */
-  width: fixed; /* Ensures the toolbar stretches across the full width */
-  padding: 10px 20px;
-  background-color: #00c2e4;
+  display: flex; /* Flex container */
+  justify-content: space-between; /* Distribute space between items */
+  align-items: center; /* Vertically center items */
+  width: 100%; /* Full width */
+  padding: 15px 20px; /* Consistent padding */
+  background-color: transparent;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   border-bottom: 1px solid #00c2e4;
-  margin-left: 100px;
+  position: fixed; /* Fixed at the top */
+  top: 0; /* Stick to the top */
+  left: 0; /* Align left */
+  z-index: 100; /* Ensure it's above other content */
 }
 
 .sidebar-toggle {
-  position: fixed; /* Fixed position to keep it visible */
-  top: 20px; /* Position it right below the toolbar */
-  left: 20px; /* Distance from the left edge of the viewport */
-  z-index: 100; /* Higher index to keep it above other content */
-  padding: 10px; /* Padding around the button */
-  background-color: #f0f0f0; /* Background color */
+  position: absolute; /* Position within the toolbar */
+  top: 10px; /* Slight offset from the top */
+  left: 10px; /* Left align */
+  padding: 10px;
+  background-color: transparent;
   border: none;
   border-radius: 5px;
-  cursor: pointer; /* Cursor to pointer to indicate it's clickable */
+  cursor: pointer;
 }
 
 .sidebar-toggle img {
@@ -57,55 +60,64 @@ body {
 }
 
 
+
 .main-container {
   display: flex; /* Uses flex to align children */
-  width: 100%; /* Full width */
-  position: center;
+  width: 50%; /* Full width */
+  position: flexible;
   flex-direction: column; /* Stacks children vertically */
   justify-content: center; /* Aligns children to the left */
-  align-items: center; /* Centers children horizontally within the container */
+  align-items: left; /* Centers children horizontally within the container */
    /* Fixed width, can adjust or make responsive as needed */
-  background-color: white; /* Background color for contrast against body */
+  background-color: transparent; /* Background color for contrast against body */
   text-align: center; /* Centers text within the container */
-  padding: 20px; /* Padding around the content within the container */
-  border-radius: 10px; /* Rounded corners for aesthetics */
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Shadow for 3D effect */
+  padding: 40px; /* Padding around the content within the container */
+  
+ 
   margin-top: 200px; /* Adds space from the top */
  
 }
 
 
-
 .main-container header {
   width: 100%;
-  background-color: #fff;  /* Ensures background contrast */
-  padding: 10px;  /* Adds some space around the text */
+  padding: 10px;
+  background-color: #fff;
 }
 
 .main-container header h1 {
-  width: 100%;
-  color: #333;  /* Ensures the text is visible */
-  font-size: 24px;  /* Sets an appropriate size for the title */
-}
-
-/* Container for icons, allows for flexible arrangement */
-.icon-container {
-  display: flex;
-  justify-content: space-around; /* Distributes space evenly around items */
-  flex-wrap: wrap; /* Allows items to wrap in smaller views */
-  width: 100%; /* Ensures it uses the full width of the parent container */
+  color: #333;
+  font-size: 24px;
 }
 
 
-/* Styles for links that contain icons */
-.icon-link {
-  display: flex;
-  flex-direction: column; /* Stacks items vertically */
-  align-items: center; /* Centers items horizontally within the link */
-  text-decoration: none; /* Removes underline from links */
-  color: #333; /* Sets text color */
-  margin: 10px; /* Adds margin around each icon link for spacing */
+/* Enhancing 'Start Now' button with interactive styles */
+.start-now-button {
+  padding: 12px 24px; /* Increased padding for a larger button */
+  background-color: #007bff; /* Primary blue color */
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px; /* Slightly rounded corners for a modern look */
+  cursor: pointer;
+  outline: none; /* Remove outline to clean up focus state */
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s; /* Smooth transition for color and shadow */
 }
+
+.start-now-button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Adding a shadow for depth */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.start-now-button:active {
+  background-color: #004088; /* Even darker for the active state */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transform: translateY(1px); /* Pushing the button down visually on click */
+}
+
+
 
 .icon-link:hover {
   transform: scale(1.1); /* Slight zoom on hover */
@@ -147,8 +159,8 @@ x
 
 
 .lottie-animation-container {
-  max-width: 400px;
-  max-height: 300px;
+  max-width: 500px;
+  max-height: 400px;
   position: absolute; 
   justify-content: flex-start; /* Aligns children to the left */
   top: 100px;

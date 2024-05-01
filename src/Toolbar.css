@@ -1,86 +1,74 @@
 
 
-  .toolbar {
-    display: flex;
-    justify-content: flex-start; 
-    align-items: center; 
-    box-sizing: border-box; 
-	
-    flex-direction: row; 
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  color: transparent;
+  width: 100%; /* Make sure the toolbar spans the full width *
+  flex-direction: row; 
 	width: 100%; /* Ensures the toolbar stretches across the full width */
     padding: 10px 20px;
-    background-color: #d0f1fc;
-    border-bottom: 1px solid #034055;
+    border-bottom:transparent;
     position: fixed;  /* Set position to fixed */
     top: 0;         /* Place it at the top of the viewport */
     z-index: 100;     /* Ensure it stays on top of other content */
 }
 
-  
-  .search-box {
-    padding: 8px;
-    margin-left: 10px; 
-    flex-grow: 1;     
+.toolbar-logo {
+  height: 50px;  
+  margin-right: 20px; 
 }
 
-  .toolbar-content {
+.toolbar-content {
 	display: flex;
+  color: white;
 	width: 100%; /* Ensures the toolbar stretches across the full width */
 	gap: 10px; /* Adds space between icons group and date-time */
+  justify-content: space-between;
   }
 
-  .toolbar {
-	
-	display: flex;
-	justify-content: flex-start; /* Aligns content to the left */
-	align-items: center; /* Centers content vertically */
-	width: 100%;
-	padding: 10px 20px;
-	background-color:#d0f1fc;
-	border-bottom: 1px solid #034055;
-  }
+.date-time, .toolbar-buttons {
+  color: white;
+  display:flex;
+}
 
+.toolbar-button, .dropdown-toggle {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
 
-  
-  .toolbar-icons {
+.dropdown-toggle img {
+  width: 20px;
+  height: auto;
+}
 
-		display: flex;
-		gap: 10px; /* Space between each icon */
-	  }
-  
+.language-dropdown {
+  position: relative;
+}
 
-  .toolbar-icon {
-	width: 24px; /* Control the size of your icons */
-	height: 24px;
+.dropdown-content {
+  position: fixed;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  z-index: 100;
+}
 
-  }
+.dropdown-item {
+  padding: 5px 10px;
+  text-align: center;
+  display: block;
+  width: 100%;
+  border: 1px solid #dcdcdc;
+  background: none;
+  cursor: pointer;
+}
 
-
-  .date-time {
-	padding: 5px 10px;
-	background-color:#d0f1fc; /* Light grey background for visibility */
-	border-radius: 5px;
-	
-  }
-
-  .app-title {
-	flex-grow: 1; /* Allows the title to take up any remaining space */
-	text-align: left; /* Ensures text is aligned to the left */
-  }
-  .app-title h1 {
-	margin: 10px 0 5px;
-  }
-  
-  .app-title hr {
-	width: 90%;
-	border: 0;
-	height: 1px;
-	background-color: #333;
-	margin-bottom: 5px;
-  }
-  
-  .tagline {
-	font-style: italic;
-	color: #555;
-  }
-  
+.dropdown-item:hover {
+  background-color: #f2f2f2;
+}

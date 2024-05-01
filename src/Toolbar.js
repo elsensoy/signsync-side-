@@ -1,49 +1,58 @@
 import React, { useState, useEffect } from 'react';
 import './Toolbar.css';
-
-// Import images directly if using webpack or similar tool
-import homeIcon from './imagestop/home.png';
-import chatIcon from './imagestop/chat.png';
-import phoneIcon from './imagestop/phone.png';
-import meetingsIcon from './imagestop/meetings.png';
-import contactIcon from './imagestop/contact.png';
-import searchIcon from './imagestop/search.png';
+import languageIcon from './imagestop/language.png';  // Ensure the path to your language icon is correct
+import logo from './imagestop/logo-no-background.png';  // Update the path if needed
 
 const Toolbar = () => {
-  const [currentTime, setCurrentTime] = useState(new Date());
-  const [isSearchVisible, setIsSearchVisible] = useState(false);  // State to control search box visibility
+    const [currentTime, setCurrentTime] = useState(new Date());
+    const [language, setLanguage] = useState('English');
+    const [isDropdownVisible, setDropdownVisible] = useState(false);
 
-  useEffect(() => {
-    const timerId = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-    return () => clearInterval(timerId);
-  }, []);
+    useEffect(() => {
+        const timerId = setInterval(() => {
+            setCurrentTime(new Date());
+        }, 1000);
+        return () => clearInterval(timerId);
+    }, []);
 
-  // Function to toggle search visibility
-  const toggleSearch = () => {
-    setIsSearchVisible(!isSearchVisible);
-  };
+    const toggleDropdown = () => {
+        setDropdownVisible(!isDropdownVisible);
+    };
 
-  return (
-    <div className="toolbar">
-      <div className="toolbar-content">
-        <div className="date-time">
-          {currentTime.toLocaleTimeString()} - {currentTime.toDateString()}
+    const handleLanguageChange = (lang) => {
+        setLanguage(lang);
+        setDropdownVisible(false);
+    };
+
+    return (
+        <div className="toolbar">
+            <img src={logo} alt="Logo" className="toolbar-logo" />  {/* Logo included here */}
+            <div className="toolbar-content">
+                <div className="date-time">
+                    {currentTime.toLocaleTimeString()} - {currentTime.toDateString()}
+                </div>
+                
+                <div className="toolbar-buttons">
+                    <button className="toolbar-button">Home</button>
+                    <button className="toolbar-button">Login</button>
+                    <button className="toolbar-button">Register</button>
+
+                    <div className="language-dropdown">
+                        <button onClick={toggleDropdown} className="dropdown-toggle">
+                            <img src={languageIcon} alt="Language" />
+                        </button>
+                        {isDropdownVisible && (
+                            <div className="dropdown-content">
+                               <button onClick={() => handleLanguageChange('Change Language')} className="dropdown-item">Change Language</button>
+                                <button onClick={() => handleLanguageChange('English')} className="dropdown-item">English</button>
+                                <button onClick={() => handleLanguageChange('German')} className="dropdown-item">Deutsch</button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div className="toolbar-icons">
-          <img src={homeIcon} alt="Home" className="toolbar-icon"/>
-          <img src={chatIcon} alt="Chat" className="toolbar-icon"/>
-          <img src={phoneIcon} alt="Phone" className="toolbar-icon"/>
-          <img src={meetingsIcon} alt="Meetings" className="toolbar-icon"/>
-          <img src={contactIcon} alt="Contacts" className="toolbar-icon"/>
-          <img onClick={toggleSearch} src={searchIcon} alt="Search" className="toolbar-icon"/>
-		  </div>
-        {isSearchVisible && <input type="text" placeholder="Search..." className="search-box" />}
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Toolbar;

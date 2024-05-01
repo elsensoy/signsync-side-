@@ -17,6 +17,17 @@
 	margin: 0;
   }
   
+/* Main content should be adjusted to allow visibility */
+.main-container {
+    transition: margin-left 0.3s ease;
+}
+
+.main-container.shift-right {
+    margin-left: 200px; /* Move content to the right when sidebar opens */
+}
+
+
+
   .sidebar-list li a {
 	display: block; /* Make links expand to the full list item */
 	padding: 10px;
