@@ -6,6 +6,7 @@ import IconContainer from './IconContainer';
 import menuBarIcon from './images/menubar.png';  // Import your menu bar icon
 import LottieAnimation from './LottieAnimation';
 function App() {
+  
     const [isSidebarOpen, setSidebarOpen] = useState(false); // State to manage sidebar visibility
 
     const toggleSidebar = () => {
@@ -13,27 +14,35 @@ function App() {
     };
 
     return (
+        
         <div className="main-container">
           
-            <Toolbar />
+          
+            <LottieAnimation animationPath="animations/videocall.json" />
+
             <button onClick={toggleSidebar} className="sidebar-toggle">
     {!isSidebarOpen && <img src={menuBarIcon} alt="Menu" />}
 </button>
 
             {isSidebarOpen && <Sidebar />}
             <div className="content">
+            <Toolbar />
                 <header>
-                    <h1>SignSync</h1>
-                </header>
-                
-                <IconContainer />
-            </div>
-            <div>
-            
-            <LottieAnimation animationPath="animations/Animationrevised.json" />
-            
-        </div>
+                <h1>SignFlow</h1>
+                    <IconContainer />
 
+                </header>
+   
+                
+              
+            </div>
+
+            <div>
+
+        </div>
+            
+       
+            
         </div>
         
         

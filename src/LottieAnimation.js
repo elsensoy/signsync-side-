@@ -2,36 +2,47 @@ import React, { useEffect, useRef } from 'react';
 
 const LottieAnimation = ({ animationPath }) => {
     const animationContainer = useRef(null);
+    const animInstance = useRef(null);  // Store the animation instance
 
     useEffect(() => {
-        // Check if the lottie library is available
-        const loadLottie = () => {
+        // Function to load the Lottie animation
+        const loadAnimation = () => {
             if (window.lottie) {
-                const anim = window.lottie.loadAnimation({
-                    container: animationContainer.current, // the DOM element that will contain the animation
+                if (animInstance.current) {
+                    animInstance.current.destroy(); // Ensure previous instances are destroyed
+                }
+                animInstance.current = window.lottie.loadAnimation({
+                    container: animationContainer.current,
                     renderer: 'svg',
                     loop: true,
                     autoplay: true,
-                    path: animationPath // the path to the animation JSON file
+                    path: animationPath
                 });
-
-                return () => anim.destroy(); // Cleanup function to destroy animation
             } else {
                 console.error("Lottie not available");
             }
         };
-        
-        const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.14/lottie.min.js';
-        script.onload = loadLottie;
-        document.head.appendChild(script);
+
+        if (!window.lottie) {
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.14/lottie.min.js';
+            script.onload = loadAnimation;
+            document.head.appendChild(script);
+            return () => {
+                document.head.removeChild(script);
+            };
+        } else {
+            loadAnimation();
+        }
 
         return () => {
-            document.head.removeChild(script);
+            if (animInstance.current) {
+                animInstance.current.destroy(); // Cleanup on component unmount
+            }
         };
     }, [animationPath]);
 
-    return <div ref={animationContainer} style={{ width: '100%', height: '100%' }} />;
+    return <div ref={animationContainer} className="lottie-animation-container"></div>;
 };
 
 export default LottieAnimation;

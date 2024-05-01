@@ -1,11 +1,21 @@
-.toolbar {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 10px;
-	background-color: #f0f0f0;
-	border-bottom: 1px solid #ccc;
-  }
+
+
+  .toolbar {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center; 
+    box-sizing: border-box; 
+	
+    flex-direction: row; 
+	width: 100%; /* Ensures the toolbar stretches across the full width */
+    padding: 10px 20px;
+    background-color: #d0f1fc;
+    border-bottom: 1px solid #034055;
+    position: fixed;  /* Set position to fixed */
+    top: 0;         /* Place it at the top of the viewport */
+    z-index: 100;     /* Ensure it stays on top of other content */
+}
+
   
   .search-box {
     padding: 8px;
@@ -15,11 +25,12 @@
 
   .toolbar-content {
 	display: flex;
-	align-items: right;
+	width: 100%; /* Ensures the toolbar stretches across the full width */
 	gap: 10px; /* Adds space between icons group and date-time */
   }
 
   .toolbar {
+	
 	display: flex;
 	justify-content: flex-start; /* Aligns content to the left */
 	align-items: center; /* Centers content vertically */

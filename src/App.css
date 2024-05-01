@@ -1,8 +1,13 @@
 /* Reset margins and padding on the body to ensure no default spacing */
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .app-header {
   width: 100%; /* Full width */
-  background-color: #f0f0f0; /* Light background, or choose a color that fits your theme */
+  background-image: linear-gradient(to right, #c2f4fd, #034055); /* Gradient background */
+    color: white; /* Text color for contrast */ /* Light background, or choose a color that fits your theme */
   padding: 15px 20px; /* Ample padding for aesthetics */
   box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
   text-align: center; /* Center-align the text or branding */
@@ -13,26 +18,25 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers children horizontally */
-  background-color: #034055;
+  align-items: center;
+  background-image: linear-gradient(to right, #c2f4fd, #013b4f);
   height: 100vh;
-  width: 100%;  /* Ensure the body takes full viewport width */
-  overflow: hidden;  /* Prevents overflow, useful for exact positioning or sizing */
+  width: 100%;
+  overflow: hidden;
 }
-
+/* Styles specifically for the toolbar to stretch across the full width of the viewport */
 /* Styles specifically for the toolbar to stretch across the full width of the viewport */
 .toolbar {
   display: flex;
   justify-content: flex-start; /* Aligns children to the left */
   align-items: center; /* Keeps items vertically centered */
-  width: 100%; /* Ensures the toolbar stretches across the full width */
+  width: fixed; /* Ensures the toolbar stretches across the full width */
   padding: 10px 20px;
   background-color: #00c2e4;
   border-bottom: 1px solid #00c2e4;
+  margin-left: 100px;
 }
 
 .sidebar-toggle {
@@ -48,30 +52,38 @@ body {
 }
 
 .sidebar-toggle img {
-  width: 30px; /* Adjust the size of the image as needed */
+  width: 20px; /* Adjust the size of the image as needed */
   height: auto; /* Maintain aspect ratio */
 }
 
+
 .main-container {
   display: flex; /* Uses flex to align children */
+  width: 100%; /* Full width */
+  position: center;
   flex-direction: column; /* Stacks children vertically */
-  justify-content: center; /* Centers children vertically within the container */
+  justify-content: center; /* Aligns children to the left */
   align-items: center; /* Centers children horizontally within the container */
-  width: 600px; /* Fixed width, can adjust or make responsive as needed */
+   /* Fixed width, can adjust or make responsive as needed */
   background-color: white; /* Background color for contrast against body */
   text-align: center; /* Centers text within the container */
   padding: 20px; /* Padding around the content within the container */
   border-radius: 10px; /* Rounded corners for aesthetics */
   box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Shadow for 3D effect */
-  margin-top: 20px; /* Adds space from the top */
+  margin-top: 200px; /* Adds space from the top */
+ 
 }
 
+
+
 .main-container header {
+  width: 100%;
   background-color: #fff;  /* Ensures background contrast */
   padding: 10px;  /* Adds some space around the text */
 }
 
 .main-container header h1 {
+  width: 100%;
   color: #333;  /* Ensures the text is visible */
   font-size: 24px;  /* Sets an appropriate size for the title */
 }
@@ -84,6 +96,7 @@ body {
   width: 100%; /* Ensures it uses the full width of the parent container */
 }
 
+
 /* Styles for links that contain icons */
 .icon-link {
   display: flex;
@@ -92,6 +105,11 @@ body {
   text-decoration: none; /* Removes underline from links */
   color: #333; /* Sets text color */
   margin: 10px; /* Adds margin around each icon link for spacing */
+}
+
+.icon-link:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+  /* ... other styles ... */
 }
 
 /* Styles to make icons appear larger */
@@ -106,22 +124,39 @@ body {
 }
 
 /* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .main-container {
-    width: 90%; /* Makes main container take up 90% of the viewport width */
+      width: 90%;
   }
-
-  .icon-container {
-    flex-direction: column; /* Stacks icons vertically on smaller screens */
-  }
-
-  .icon-link {
-    margin-bottom: 20px; /* Adds more space between stacked items */
-  }
-
-  /* Add this in your CSS to check if the container is visible */
-div {
-  border: 1px solid red; /* Just for debugging */
+  /* ... other styles for tablet ... */
 }
 
+/* Example media query for mobile */
+@media (max-width: 768px) {
+  .main-wrapper {
+      flex-direction: column; /* Stack sections vertically on mobile */
+  }
+}
+
+x
+.icon-link {
+  margin-bottom: 20px; /* Adds more space between stacked items */
+}
+  /* Add this in your CSS to check if the container is visible */
+
+
+
+.lottie-animation-container {
+  max-width: 400px;
+  max-height: 300px;
+  position: absolute; 
+  justify-content: flex-start; /* Aligns children to the left */
+  top: 100px;
+  right: 10px;
+  /* ... other styles ... */
+}
+@media (max-width: 768px) {
+  .lottie-animation-container {
+      height: 200px; /* Smaller height on smaller screens */
+  }
 }

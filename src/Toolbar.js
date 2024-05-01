@@ -31,6 +31,7 @@ const Toolbar = () => {
         <div className="date-time">
           {currentTime.toLocaleTimeString()} - {currentTime.toDateString()}
         </div>
+        
         <div className="toolbar-icons">
           <img src={homeIcon} alt="Home" className="toolbar-icon"/>
           <img src={chatIcon} alt="Chat" className="toolbar-icon"/>
