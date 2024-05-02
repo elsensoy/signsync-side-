@@ -5,7 +5,7 @@ import logo from './imagestop/logo-no-background.png';  // Update the path if ne
 
 const Toolbar = () => {
     const [currentTime, setCurrentTime] = useState(new Date());
-    const [language, setLanguage] = useState('English');
+   
     const [isDropdownVisible, setDropdownVisible] = useState(false);
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const Toolbar = () => {
     };
 
     const handleLanguageChange = (lang) => {
-        setLanguage(lang);
+        
         setDropdownVisible(false);
     };
 

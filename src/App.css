@@ -2,7 +2,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing
+  : border-box;
 }
 .app-header {
   width: 100%; /* Full width */
@@ -16,15 +17,32 @@
   z-index: 1000; /* Ensure it stays on top of other content */
 }
 
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full height of the viewport */
+}
+
+
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Belleza', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-image: linear-gradient(to right, #c2f4fd, #013b4f);
-  height: 100vh;
-  width: 100%;
+  height: 150vh;
+  width: 80%;
   overflow: hidden;
+}
+
+.intro-section h1 {
+  font-size: 36px; 
+  color: #FFFFFF; /* Default color for the heading */
+}
+.intro-section h1 span {
+  font-weight: bold;
+  color: #FFBF5D; /* Special color for 'SignFlow' */
 }
 /* Styles specifically for the toolbar to stretch across the full width of the viewport */
 /* Styles specifically for the toolbar to stretch across the full width of the viewport */
@@ -43,15 +61,25 @@ body {
   z-index: 100; /* Ensure it's above other content */
 }
 
+
+/* CSS for the logo button */
+.toolbar-logo-button {
+  background: none;  /* No background color */
+  border: none;      /* No border */
+  padding: 0;        /* No padding */
+  cursor: pointer;   /* Cursor indicates it's clickable */
+}
+
+/* CSS for the logo image */
+.toolbar-logo {
+  width: auto;       /* Maintain original aspect ratio */
+  height: 30px;      /* Example height, adjust as needed */
+  display: block;    /* Removes bottom space/gap under the image */
+}
+
 .sidebar-toggle {
-  position: absolute; /* Position within the toolbar */
-  top: 10px; /* Slight offset from the top */
-  left: 10px; /* Left align */
-  padding: 10px;
-  background-color: transparent;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  position: absolute; /* Absolute positioning within the toolbar */
+  left: 10px; /* To the left */
 }
 
 .sidebar-toggle img {
@@ -67,21 +95,21 @@ body {
   position: flexible;
   flex-direction: column; /* Stacks children vertically */
   justify-content: center; /* Aligns children to the left */
-  align-items: left; /* Centers children horizontally within the container */
+  align-items: center; /* Centers children horizontally within the container */
    /* Fixed width, can adjust or make responsive as needed */
   background-color: transparent; /* Background color for contrast against body */
-  text-align: center; /* Centers text within the container */
+  text-align: left; /* Centers text within the container */
   padding: 40px; /* Padding around the content within the container */
   
  
-  margin-top: 200px; /* Adds space from the top */
+  margin-top: 100px; /* Adds space from the top */
  
 }
 
 
 .main-container header {
   width: 100%;
-  padding: 10px;
+  padding: 40px;
   background-color: #fff;
 }
 
@@ -93,26 +121,28 @@ body {
 
 /* Enhancing 'Start Now' button with interactive styles */
 .start-now-button {
-  padding: 12px 24px; /* Increased padding for a larger button */
-  background-color: #007bff; /* Primary blue color */
+  padding: 10px 18px; /* Increased padding for a larger button */
+  background-color: #FFBF5D;
+   /* Primary blue color */
   color: white;
-  font-size: 1.2em;
+  font-size: 1.0em;
   font-weight: bold;
   border: none;
+  margin-top: 10px;
   border-radius: 6px; /* Slightly rounded corners for a modern look */
   cursor: pointer;
   outline: none; /* Remove outline to clean up focus state */
-  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s; /* Smooth transition for color and shadow */
+  transition: background-color 0.3s, box-shadow 0.8s, transform 0.5s; /* Smooth transition for color and shadow */
 }
 
 .start-now-button:hover {
-  background-color: #0056b3; /* Darker shade on hover */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Adding a shadow for depth */
+  background-color: #3600b4; /* Darker shade on hover */
+  box-shadow: 0 6px 25px rgba(0,0,0,0.2); /* Adding a shadow for depth */
   transform: translateY(-2px); /* Slight lift effect */
 }
 
 .start-now-button:active {
-  background-color: #004088; /* Even darker for the active state */
+  background-color: #4f03c2; /* Even darker for the active state */
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   transform: translateY(1px); /* Pushing the button down visually on click */
 }
@@ -135,22 +165,29 @@ body {
   margin-top: 8px; /* Space between the icon and text label */
 }
 
-/* Responsive adjustments for smaller screens */
 @media (max-width: 1024px) {
   .main-container {
-      width: 90%;
+    width: 90%; /* Adjust width for tablet sizes */
+    padding: 20px; /* Smaller padding on smaller screens */
   }
-  /* ... other styles for tablet ... */
+
+  .intro-section h1 {
+    font-size: 28px; /* Smaller font size on smaller screens */
+  }
 }
 
-/* Example media query for mobile */
 @media (max-width: 768px) {
-  .main-wrapper {
-      flex-direction: column; /* Stack sections vertically on mobile */
+  .main-container {
+    width: 100%; /* Full width on mobile devices */
+    margin-top: 60px; /* Less space from the top */
+  }
+
+  .intro-section h1 {
+    font-size: 24px; /* Even smaller font size for mobile */
   }
 }
 
-x
+
 .icon-link {
   margin-bottom: 20px; /* Adds more space between stacked items */
 }
@@ -158,15 +195,38 @@ x
 
 
 
-.lottie-animation-container {
-  max-width: 500px;
-  max-height: 400px;
+.first-animation-style {
+  max-width: 600px;
+  max-height: 500px;
   position: absolute; 
   justify-content: flex-start; /* Aligns children to the left */
-  top: 100px;
-  right: 10px;
+  top: 80px;
+  right: 50px;
   /* ... other styles ... */
 }
+
+
+.second-animation-style {
+  position: absolute;
+  top: 70%; /* Start from the middle of the screen */
+  left: 1;
+  max-width: 10px;
+  max-height: 200px;
+  
+  z-index: -1;
+}
+
+.third-animation-style {
+  position: absolute;
+  top: 73%; /* Start from the middle of the screen */
+  left: 0;
+  max-width: 240px;
+  max-height: 200px;
+  
+  z-index: -1;
+}
+
+
 @media (max-width: 768px) {
   .lottie-animation-container {
       height: 200px; /* Smaller height on smaller screens */

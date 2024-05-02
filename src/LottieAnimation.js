@@ -1,15 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 
-const LottieAnimation = ({ animationPath }) => {
+const LottieAnimation = ({ animationPath, className }) => {
     const animationContainer = useRef(null);
-    const animInstance = useRef(null);  // Store the animation instance
+    const animInstance = useRef(null);
 
     useEffect(() => {
-        // Function to load the Lottie animation
         const loadAnimation = () => {
             if (window.lottie) {
                 if (animInstance.current) {
-                    animInstance.current.destroy(); // Ensure previous instances are destroyed
+                    animInstance.current.destroy();
                 }
                 animInstance.current = window.lottie.loadAnimation({
                     container: animationContainer.current,
@@ -37,12 +36,13 @@ const LottieAnimation = ({ animationPath }) => {
 
         return () => {
             if (animInstance.current) {
-                animInstance.current.destroy(); // Cleanup on component unmount
+                animInstance.current.destroy();
             }
         };
     }, [animationPath]);
 
-    return <div ref={animationContainer} className="lottie-animation-container"></div>;
+    // Apply the passed className to the container
+    return <div ref={animationContainer} className={`lottie-animation-container ${className}`}></div>;
 };
 
 export default LottieAnimation;
