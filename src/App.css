@@ -7,7 +7,7 @@
 }
 .app-header {
   width: 100%; /* Full width */
-  background-image: linear-gradient(to right, #c2f4fd, #034055); /* Gradient background */
+  background-image: linear-gradient(to right, #cbf5fc, #0693c1); /* Gradient background */
     color: white; /* Text color for contrast */ /* Light background, or choose a color that fits your theme */
   padding: 15px 20px; /* Ample padding for aesthetics */
   box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
@@ -30,7 +30,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: linear-gradient(to right, #c2f4fd, #013b4f);
+  background-image: linear-gradient(to right, #cbf5fc, #0693c1);
   height: 150vh;
   width: 80%;
   overflow: hidden;
@@ -39,6 +39,7 @@ body {
 .intro-section h1 {
   font-size: 36px; 
   color: #FFFFFF; /* Default color for the heading */
+  top: 20%; 
 }
 .intro-section h1 span {
   font-weight: bold;
@@ -91,19 +92,17 @@ body {
 
 .main-container {
   display: flex; /* Uses flex to align children */
-  width: 50%; /* Full width */
-  position: flexible;
+  width: 60%; /* Full width */
+  font-size: 20px;
+  margin-right: 0;
   flex-direction: column; /* Stacks children vertically */
-  justify-content: center; /* Aligns children to the left */
-  align-items: center; /* Centers children horizontally within the container */
-   /* Fixed width, can adjust or make responsive as needed */
+  justify-content: center; /* Aligns children vertically in the center */
+  align-items: center; /* Keeps main content centered */
   background-color: transparent; /* Background color for contrast against body */
-  text-align: left; /* Centers text within the container */
-  padding: 40px; /* Padding around the content within the container */
-  
- 
+  text-align: left; /* Text alignment */
+  color: #3c555b;
+  padding: 20px; /* Padding around the content within the container */
   margin-top: 100px; /* Adds space from the top */
- 
 }
 
 
@@ -114,26 +113,33 @@ body {
 }
 
 .main-container header h1 {
-  color: #333;
+  color: #747070;
   font-size: 24px;
+  padding: 20px;
 }
 
 
 /* Enhancing 'Start Now' button with interactive styles */
 .start-now-button {
+  display: block; /* Ensures the button is a block element */
+  margin-left: auto; /* Aligns the button to the right */
+  margin-right: 0;
   padding: 10px 18px; /* Increased padding for a larger button */
-  background-color: #FFBF5D;
-   /* Primary blue color */
+  background-color: #FFBF5D; /* Distinctive button color */
   color: white;
   font-size: 1.0em;
   font-weight: bold;
   border: none;
+  text-align: right;
+  align-self: flex-start; /* Aligns this specific button to the left */
   margin-top: 10px;
   border-radius: 6px; /* Slightly rounded corners for a modern look */
   cursor: pointer;
+  left:20px;
   outline: none; /* Remove outline to clean up focus state */
-  transition: background-color 0.3s, box-shadow 0.8s, transform 0.5s; /* Smooth transition for color and shadow */
+  transition: background-color 0.3s, box-shadow 0.8s, transform 0.5s; /* Smooth transition for hover effects */
 }
+
 
 .start-now-button:hover {
   background-color: #3600b4; /* Darker shade on hover */
@@ -210,7 +216,7 @@ body {
   position: absolute;
   top: 70%; /* Start from the middle of the screen */
   left: 1;
-  max-width: 10px;
+  max-width: 200px;
   max-height: 200px;
   
   z-index: -1;
@@ -218,10 +224,10 @@ body {
 
 .third-animation-style {
   position: absolute;
-  top: 73%; /* Start from the middle of the screen */
+  top: 70%; /* Start from the middle of the screen */
   left: 0;
-  max-width: 240px;
-  max-height: 200px;
+  max-width: 300px;
+  max-height: 300px;
   
   z-index: -1;
 }

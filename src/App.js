@@ -8,7 +8,7 @@ import LottieAnimation from './LottieAnimation';
 
 function App() {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
-    const [buttonText, setButtonText] = useState("New Meeting");
+    const [buttonText, setButtonText] = useState("Start a Meeting");
 
     // Function to toggle the sidebar visibility
     const toggleSidebar = () => {
@@ -20,7 +20,7 @@ function App() {
         setButtonText("Starting...");
         setTimeout(() => {
             setButtonText("Start Now"); // Reset button text after the simulation
-            // In a real application, here you might transition to the video call interface
+            // Here you will need the transition to the video call interface
         }, 3000);
     };
 
